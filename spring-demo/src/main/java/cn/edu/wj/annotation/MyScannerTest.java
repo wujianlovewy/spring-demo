@@ -67,8 +67,13 @@ public class MyScannerTest {
 				for (Class<?> serviceClass : annotated) {  
 					  if(serviceClass.isAnnotationPresent(SPI.class)){
 						  RootBeanDefinition beanDefinition = new RootBeanDefinition();  
-						  beanDefinition.setBeanClass(serviceClass);
-						  beanDefinitionRegistry.registerBeanDefinition(ClassUtils.getShortName(serviceClass), beanDefinition);
+						  //beanDefinition.setBeanClass(serviceClass);
+						  //beanDefinitionRegistry.registerBeanDefinition(ClassUtils.getShortName(serviceClass), beanDefinition);
+						  
+						  //通过factoryBean生成
+						  beanDefinition.getPropertyValues().add("innerClassName", ClassUtils.getQualifiedName(serviceClass));
+						  beanDefinition.setBeanClass(FactoryBeanTest.class);
+						  beanDefinitionRegistry.registerBeanDefinition(ClassUtils.getShortName(FactoryBeanTest.class), beanDefinition);
 					  }
 				}
 			}
