@@ -11,5 +11,5 @@
 	default-autowire="byName">
 	
 	<aop:aspectj-autoproxy/>
-	<context:component-scan base-package="cn.edu.wj.annotation.aspect"/>
+	<context:component-scan base-package="cn.edu.wj.annotation"/>
 </beans>

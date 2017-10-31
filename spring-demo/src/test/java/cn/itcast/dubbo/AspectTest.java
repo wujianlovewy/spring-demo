@@ -23,7 +23,7 @@ public class AspectTest {
 	
 	@Test
 	public void test1(){
-		cacheService.add();
+		cacheService.take();
 	}
 	
 }
